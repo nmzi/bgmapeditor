@@ -1,4 +1,1 @@
-Copiez simplement l'ensemble du répertoire dans votre système de fichiers. 
-
-Les fichiers contenus dans lib/ et le fichier mapeditor.pl ne sont pas 
-nécessaires à l'exécution des fichiers binaires (.exe ou .bin)
+Unzip and launch either bgmapeditor.exe (windows) or bgmapeditor.pl (linux)
