@@ -1,0 +1,15 @@
+/Basic/couloirs/couloir1.gif/r_0.png;tile;150x210;15 
+/Basic/couloirs/couloir3.gif/r_90.png;tile;150x30;15 
+/Basic/dalles/7.gif/r_0.png;tile;105x300;15 
+/Basic/dalles/7.gif/r_0.png;tile;105x90;15 
+/Basic/dalles/7.gif/r_0.png;tile;225x90;15 
+/Basic/zones/blue2.png/r_0.png;zone;150x150;15 
+/Basic/zones/blue2.png/r_0.png;zone;150x120;15 
+/Basic/portes/passage_large.png/r_0.png;chip;154x207;0
+/Basic/portes/passage_large.png/r_0.png;chip;155x87;0
+/Basic/portes/porte.png/r_0.png;chip;153x297;0
+/Basic/portes/porte_large.png/r_90.png;chip;222x155;0
+/Basic/symboles/I1.png/r_0.png;chip;150x135;15 
+/Basic/symboles/I2.png/r_0.png;chip;165x360;15 
+/Basic/symboles/I3.png/r_0.png;chip;300x150;15 
+1. Salle de départ\;\n2. salle d'arrivée\;\n3. salle annexe.\n;text;248x239;0
