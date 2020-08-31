@@ -1,7 +1,7 @@
 title="Editor de mapa para jogos de mesa"
 w_corrupted="Instala&ccedil;&atilde;o corrompida. Reinstale o programa.\n"
 w_not_implemented="Ainda n&atilde;o implementado!"
-w_file_not_exist="Não pode abrir"
+w_file_not_exist="N&atilde;o pode abrir"
 
 m_new="~Novo"
 m_file="~Arquivo"
