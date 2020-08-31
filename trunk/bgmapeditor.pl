@@ -34,6 +34,7 @@ use Archive::Zip;
 use POSIX;
 use GD;
 use Encode;
+use HTML::Entities;
 
 use Tk;
 use Tk::PNG;
@@ -51,7 +52,7 @@ use Switch;
 $Tk::encodeFallback=1;
 
 
-# Imports (importés au niveau de l'app. pour PARL)
+# Imports (importÃ©s au niveau de l'app. pour PARL)
 use TilePack;
 use TileRegistry;
 use ConfigReader;
@@ -77,7 +78,7 @@ my $langpath = "$execpath"."lang";
 #==================================================================================#
 
 
-# nettoie le répertoire temporaire
+# nettoie le rÃ©pertoire temporaire
 eval {
 	&rmtree("$execpath/tmp");
 	&mkpath("$execpath/tmp")
@@ -95,7 +96,7 @@ my %lang = ();
 open(LANG, $langpath . "/" . $cfg{lang}) or die "No language pack available!";
 while (<LANG>) {
 	/^(.*?)=(["']?)(.*?)(\2)$/;
-	$lang{$1} = $3;
+	$lang{$1} = decode_entities($3);
 }
 close(LANG);
 
@@ -103,7 +104,7 @@ $cfg{area} = "" unless $cfg{area};
 
 #==================================================================================#
 
-# Options générales du GUI
+# Options gÃ©nÃ©rales du GUI
 $main = MainWindow->new(-title => $lang{title});
 $main->fontCreate("bgnormal", -size => "9", -family => "Helvetica");
 $main->optionAdd("*font", "bgnormal");
@@ -112,7 +113,7 @@ my $tabber = $main->Tabber(-border => 1, -font=>"bgnormal")->pack(qw/-expand 1 -
 my $status = "";
 $main->Label(-textvariable => \$status)->pack(qw/-side left -fill y/);
 
-# Mise en place de l'éditeur
+# Mise en place de l'Ã©diteur
 
 # Images de l'interface
 my %ui = ();
@@ -320,7 +321,7 @@ $main->bind("<t>" => sub {	&command_text});
 #$mw->get_tile_chooser->bind("<ButtonPress-3>" => sub { $mw->show_licence });
 
 #==================================================================================#
-# Préparation des tabs
+# PrÃ©paration des tabs
 
 &command_new_tab unless @ARGV;
 foreach (@ARGV) {
