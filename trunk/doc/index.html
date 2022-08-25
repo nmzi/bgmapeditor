@@ -11,19 +11,17 @@
 			<div id="top" >
 				<h1>Mapeditor: a generic map editor for board games</h1>
 			</div><!-- top -->
-
-			
 			
 			<ul id="menu">
 				<a href="#description"><li class="menuItem" id="">Overview</li></a>
 				<a href="#changes"><li class="menuItem" id="">History</li></a>
-				<a href="#téléchargements"><li class="menuItem" id="">Download</li></a>
+				<a href="#downloads"><li class="menuItem" id="">Download</li></a>
 				<a href="#installation"><li class="menuItem" id="">Installing</li></a>
 				<a href="#interface"><li class="menuItem" id="">User Interface</li></a>
 				<a href="#packs"><li class="menuItem" id="">Graphic Resources</li></a>
 				<a href="#todo"><li class="menuItem" id="">TODO</li></a>
 				<a href="#bugs"><li class="menuItem" id="">Bugs</li></a>
-				<a href="#licence"><li class="menuItem" id="">Licence</li></a>
+				<a href="#license"><li class="menuItem" id="">License</li></a>
 				<a href="#auteur"><li class="menuItem" id="">Author</li></a>
 			</ul><!-- menu -->
 
@@ -34,37 +32,34 @@
 				<p>
 				The author would like to apologize for making Mapeditor available as a Windows program.
 				</p>
-
 				
 				<h2 id="description">Overview</h2>
-				<p><em>Mapeditor</em> is a Perl program, available free of charge (please refer to <a href="#licence">licence</a> for details),
+				<p><em>Mapeditor</em> is a Perl program, available free of charge (please refer to <a href="#license">license</a> for details),
 				designed as a basic tool to create and edit maps for various board games.</p>
 				<p>Using <em>Mapeditor</em> you can for example create a map similar to the following in a matter of minutes:</p>
 				<p class="center">
-					<img alt="exemple de carte" src="img/en/map.png"/>
+					<img alt="Map example" src="img/en/map.png"/>
 				</p>
 				<p>
 				<em>Mapeditor</em> can easily be extended thanks to a modular pack system that allows you to add and remove tile graphics with little efforts.</p>
 				<h2 id="changes">History</h2>
-				
-				<p>Please refer to <a href="http://gooki.ifrance.com/">http://gooki.ifrance.com/</a>.</p>
 
-				<h2 id="téléchargements">Download</h2>
-				<p>Source code as well as Linux and Windows binaries are available at <a href="http://gooki.ifrance.com/">http://gooki.ifrance.com/</a>.</p>
+				<h2 id="downloads">Download</h2>
+				<p>Source code as well as Linux and Windows binaries are available at <a href="https://sourceforge.net/projects/bgmapeditor/">https://sourceforge.net/projects/bgmapeditor/</a>.</p>
 				<h2 id="installation">Installing</h2>
 				<p>Uncompress the archive into the preferred location.</p>
 				<p>Double Click the binary applicable to your operating system (<em>mapeditor.bin</em> for Linux, <em>mapeditor.exe</em> for Windows).</p>
 				<p>It is also possible to execute the <em>mapeditor.pl</em> Perl script directly if the following modules and dependencies are installed and working: Tk, GD</p>
 				<h2 id="interface">User Interface</h2>
 				<p class="center">
-					<img alt="vue d'ensemble de l'interface" src="img/en/ui_global.png"/>
+					<img alt="Global UI" src="img/en/ui_global.png"/>
 				</p>
 				<p>
-				The main area can be used like a drawing board where you can add, move, rotate or delete tiles with simple mouse actions.</p>
-				The result of clicking with the mouse on the canvas (using the left mouse button) can be changed in two ways:</p>
-				- click on the local menu items just above the canvas<br>
-				- using shortcuts</p>
-				The 'mode' the mouse is set to will remain active until it is changed to a different one allowing for quick editing.
+				<p>The main area can be used like a drawing board where you can add, move, rotate or delete tiles with simple mouse actions.</p>
+				<p>The result of clicking with the mouse on the canvas (using the left mouse button) can be changed in two ways:</p>
+				<p>- click on the local menu items just above the canvas</p>
+				<p>- using shortcuts</p>
+				<p>The 'mode' the mouse is set to will remain active until it is changed to a different one allowing for quick editing.</p>
 				<ul>
 					<li>Add a tile or object (<code>&lt;n&gt;</code>).</li>
 					<li>Move a tile or object (<code>&lt;Espace&gt;</code>).</li>
@@ -73,21 +68,11 @@
 				</ul>
 				You can change the object to be inserted by selecting the appropriate item on the left hand side of the canvas.
 				</p>
-				<h3>Menu Bar</h3>
-				<h4>File</h4>
-				<p><img alt="fichier" src="img/en/menu_file.png"/></p>
-				<h4>Edit</h4>
-				<p><img alt="édition" src="img/en/menu_edit.png"/></p>
-				<h4>Packs</h4>
-				<p><img alt="packs" src="img/en/menu_packs.png"/></p>
-				
+
 				<h2 id="packs">Graphical Resources</h2>
-				<p>
-				WARNING: this section needs to be updated! See French doc.
-				</p>
-				The tile graphics can be tailored to a particular board game. By packing the images into a Zip file you can import your custom set quite easily.
-				First create a parent directory and name it after your pack.</p>
-				Then create as many subdirectories as required inside this top directory:
+				<p>The tile graphics can be tailored to a particular board game. By packing the images into a Zip file you can import your custom set quite easily.</p>
+				<p>First create a parent directory and name it after your pack.</p>
+				<p>Then create as many subdirectories as required inside this top directory:</p>
 				
 				<ul>
 					<li>tiles (playing surface)</li>
@@ -96,12 +81,12 @@
 					<li>miscellaneous props</li>
 					<li>any other items you would like to include</li>
 				</ul>				
-				<em>If a subdirectory starts with an underscore "_" the resources will be treated as objects to be used as an overlay on top of the background tiles. 
+				<p><em>If a subdirectory starts with an underscore "_" the resources will be treated as objects to be used as an overlay on top of the background tiles. 
 				Subdirectories starting with a dash "-" will be treated as intermediate layers between the background and overlaying objects.
 				They are typically used as zone delimiters.</em>
 				</p>
 
-				<p>You can see an example here: <a href="dl/Basic.zip">Basic.zip</a>.</p>
+				<p>You can see examples here: <a href="https://www.zombicide.com/en/zombicide-mapeditor/">Zombicide Packs</a>.</p>
 				
 				<p>GIF, PNG et JPEG are all acceptable file formats but formats that support transparency such as GIF or PNG come highly recommended.</p>
 				
@@ -125,18 +110,15 @@
 				</ul>
 				
 				<h2 id="bugs">Bugs</h2>
-				
-				<p>Voir <a href="http://gooki.ifrance.com/">http://gooki.ifrance.com/</a>.</p>
 
 				<p>Please forward all bug reports to the author. We endeavour to correct the faults but please bear in mind that 
 				this is a non commercial project and that the time available doing so is limited. Please be patient!</p>
-				All <em>Mapeditor</em> bug reports and feature requests need to be indicated as such in the subject line of emails.
-				</p>
-				<h2 id="licence">License</h2>
+				<p>All <em>Mapeditor</em> bug reports and feature requests need to be indicated as such in the subject line of emails.</p>
+				<h2 id="license">License</h2>
 				<h3>Mapeditor License</h3>
 				<p>Copyright 2006 mzi, under <a href="http://www.perl.com/pub/a/language/misc/Artistic.html">Perl artistic license</a> 
 				and/or <a href="http://www.gnu.org/copyleft/gpl.html">GPL</a>:
-				This is a free software; you can redistribute it and/or modify it under the same terms as Perl itself.</q>
+				<p>This is a free software; you can redistribute it and/or modify it under the same terms as Perl itself.</p>
 				</p>
 
 				<h3>Graphic Packs</h3>
@@ -148,8 +130,7 @@
 				
 				<h2 id="auteur">Author</h2>
 				<p>mzi. Email: akuma[at]swing[dot]be.</p>
-				Once again all <em>mapeditor</em> bug reports and feature requests need to be indicated as such in the subject line of emails.
-				</p>
+				<p>Once again all <em>mapeditor</em> bug reports and feature requests need to be indicated as such in the subject line of emails.</p>
 			</div><!-- main -->
 		
 			<div id="bottom" >

@@ -2,6 +2,8 @@ bgmapeditor (or mapeditor for short) is an opensource editor for boardgames such
 
 To install, unzip and launch either trunk/bgmapeditor.exe (windows) or trunk/bgmapeditor.pl (linux)
 
+Note: Before editing, you need to add at least one pack.
+
 If you like this totally free piece of software, Paypal donations are welcome: m z i [at] n y a r l a t h o t e p [dot] e u.
 
 Enjoy!

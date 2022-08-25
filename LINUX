@@ -1,0 +1,8 @@
+Running on Linux will require these steps:
+
+1- Install Perl with required dependencies:
+> sudo apt-get install libgd-gd2-perl perl-tk libswitch-perl
+
+2- Install required Perl modules
+> sudo cpan
+... > install Archive::Zip
