@@ -318,7 +318,7 @@ sub update_recents_menu {
 	foreach(@recents) {
 		$recentsmenu->Command(
 			-label => $_,
-			-command => [ sub { &command_open_file }, $_, 0 ]
+			-command => [ sub { &command_open_file }, $_ ]
 		);
 	}
 }
