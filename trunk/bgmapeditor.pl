@@ -404,7 +404,7 @@ sub command_close_tab {
 }
 
 sub command_open_file {
-	my ($file, $is_template) = @_;
+	my $file = shift;
 	
 	my $editor = $tabber->raised_widget;
 	foreach my $page ($tabber->pages) {
