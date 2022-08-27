@@ -9,7 +9,7 @@ sub push_front {
 	
 	my @recents = load($recentsfile);
 	
-	# Supprimer tout les doublons
+	# Supprimer tous les doublons
 	@recents = grep { $_ ne $file } @recents;
 	
 	# Insérer en avant de la liste
@@ -20,7 +20,7 @@ sub push_front {
 		@recents = @recents[0..$recentslimit-1];
 	}
 	
-	# Écrire
+	# Écrire tout
 	@recents = join("\n", @recents);
 	
 	open(WH, '>', $recentsfile);

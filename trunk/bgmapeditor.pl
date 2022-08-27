@@ -132,7 +132,7 @@ foreach (@uiimages) {
 	$ui{$_} = $tkimage; 
 } 
 
-# Fichier récents
+# Fichiers récemments ouverts
 my $recentslimit = $cfg{recents_limit};
 my @recents;
 
@@ -161,7 +161,7 @@ $menubar->Cascade(-label => $lang{m_file}, -menuitems =>
 		[Cascade => $lang{m_recents},
 			-image => $ui{"fileopen.png"},
 			-compound => "left",
-			-menu => $recentsmenu
+			-menu => $recentsmenu,
 		],
 		[Separator => ''],
 		[Button => $lang{m_save}, 
@@ -303,7 +303,7 @@ $menubar->Cascade(-label => $lang{m_help}, -menuitems =>
 	]
 );
 
-# Mise à jour du menu de fichiers récents
+# Mise à jour des fichiers récemments ouverts
 
 sub update_recents_menu {
 	if (@recents)
