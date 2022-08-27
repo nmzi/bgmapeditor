@@ -56,6 +56,7 @@ $Tk::encodeFallback=1;
 use TilePack;
 use TileRegistry;
 use ConfigReader;
+use RecentsList;
 use ImageData;
 use Tk::Map;
 use Tk::Mapeditor;
@@ -73,6 +74,7 @@ my $imgpath = "$path"."img";
 my $tilepath = "$imgpath/tiles";
 my $uiimgpath = "$imgpath/ui";
 my $configfile = "$execpath"."bgmapeditor.cfg";
+my $recentsfile = "$execpath"."recents.lst";
 my $langpath = "$execpath"."lang";
 
 #==================================================================================#
@@ -130,13 +132,17 @@ foreach (@uiimages) {
 	$ui{$_} = $tkimage; 
 } 
 
-
+# Fichier récents
+my $recentslimit = $cfg{recents_limit};
+my @recents;
 
 #==================================================================================#
 # Menu
 
 my $menubar = $main->Menu(-type => 'menubar', -relief => 'fl');
 $main->configure(-menu => $menubar);
+
+my $recentsmenu = $menubar->Menu(-tearoff => 0);
 
 $menubar->Cascade(-label => $lang{m_file}, -menuitems =>
 	[
@@ -151,6 +157,11 @@ $menubar->Cascade(-label => $lang{m_file}, -menuitems =>
 			-image => $ui{"fileopen.png"},
 			-accelerator => 'Control-o',
 			-compound => "left",
+		],
+		[Cascade => $lang{m_recents},
+			-image => $ui{"fileopen.png"},
+			-compound => "left",
+			-menu => $recentsmenu
 		],
 		[Separator => ''],
 		[Button => $lang{m_save}, 
@@ -292,6 +303,27 @@ $menubar->Cascade(-label => $lang{m_help}, -menuitems =>
 	]
 );
 
+# Mise à jour du menu de fichiers récents
+
+sub update_recents_menu {
+	if (@recents)
+	{
+		foreach(@recents) {
+			$recentsmenu->delete(0);
+		}
+	}
+
+	@recents = RecentsList::load($recentsfile);
+	
+	foreach(@recents) {
+		$recentsmenu->Command(
+			-label => $_,
+			-command => [ sub { &command_open_file }, $_, 0 ]
+		);
+	}
+}
+
+update_recents_menu();
 
 #==================================================================================#
 
@@ -371,17 +403,9 @@ sub command_close_tab {
 	$tabber->delete($current) if $current;
 }
 
-sub command_open_map { 
-	my $file = shift;
-	$file =	&file_dialog(
-		"open",
-		-filetypes =>	[
-		[$lang{"b_map"},   [qw/.map/]],
-		[$lang{"b_all"},		'*']
-		],
-		-defaultextension => ".map"		
-	) unless $file;
-	return 0 unless $file;
+sub command_open_file {
+	my ($file, $is_template) = @_;
+	
 	my $editor = $tabber->raised_widget;
 	foreach my $page ($tabber->pages) {
 		my $tabfile = $tabber->{_tabs}{$page}{widget}{_file};
@@ -400,6 +424,23 @@ sub command_open_map {
 	$editor->load_file( $file );
 	&msg($lang{"i_done"} . " [". localtime() ."]", 1);
 	$editor->eventGenerate("<ButtonRelease-1>");
+	
+	RecentsList::push_front($file, $recentsfile, $recentslimit);
+	update_recents_menu();
+}
+
+sub command_open_map { 
+	my $file = shift;
+	$file =	&file_dialog(
+		"open",
+		-filetypes =>	[
+		[$lang{"b_map"},   [qw/.map/]],
+		[$lang{"b_all"},		'*']
+		],
+		-defaultextension => ".map"		
+	) unless $file;
+	return 0 unless $file;
+	command_open_file($file);
 }
 
 sub command_save_map { 
